@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Disaster-Vision</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="container">
+    <h1>Flood and Landslide Prediction System</h1>
+    
+    <p>Enter a location below to get satellite imagery and risk assessment</p>
+    
+    <div class="form-group">
+      <input type="text" id="locationInput" placeholder="Enter location (e.g., Chennai, India)" />
+    </div>
+    
+    <div class="btn-group">
+      <button onclick="fetchSatelliteImage('flood')">Get Analysis</button>
+    </div>
+    
+    <div id="loading" class="hidden">
+      <div class="spinner"></div>
+      <p>Fetching satellite data and analyzing...</p>
+    </div>
+    
+    <div id="error" class="error hidden"></div>
+    
+    <div id="imageSection" class="hidden">
+      <h3>Satellite Image</h3>
+      <div class="image-container">
+        <img id="satelliteImage" src="" alt="Satellite image">
+      </div>
+    </div>
+    
+    <div id="result" class="hidden">
+      <h3>📊 Analysis Results</h3>
+      <div id="predictionText" class="results"></div>
+    </div>
+  </div>
+
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
